@@ -7,7 +7,7 @@ from brain import Brain
 
 if __name__ == "__main__":
     # Flag used to enable or disable screen recording
-    recording_is_enabled = True
+    recording_is_enabled = False
 
     # Initializes the environment
     env = gym.make('MountainCar-v0')
