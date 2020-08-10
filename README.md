@@ -9,4 +9,4 @@ Finally, you need to install [CUDA Toolkit 10.1](https://developer.nvidia.com/cu
 
 ## How to run it
 You can run the script using the following command: 
-- `pipenv run python cartpole.py`
+- `pipenv run python mountain_car.py`
