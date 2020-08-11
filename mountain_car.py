@@ -84,8 +84,3 @@ if __name__ == "__main__":
 
     # Closes the environment
     env.close()
-
-
-
-
-
