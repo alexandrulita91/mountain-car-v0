@@ -72,7 +72,7 @@ if __name__ == "__main__":
     # Defines training related constants
     batch_size = 32
     num_episodes = 1000
-    num_episode_steps = 200  # constant value
+    num_episode_steps = env.spec.max_episode_steps  # constant value
     action_size = env.action_space.n
     state_size = env.observation_space.shape[0]
 
