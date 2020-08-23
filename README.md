@@ -19,7 +19,7 @@ A deep Q network (DQN) (Mnih et al., 2013) is an extension of Q learning, which 
 
 ## How to run it
 You can run the script using the following command: 
-- `pipenv run python dqn_mountain_car.py`
+- `pipenv run python mountain_car_v0_dqn.py`
 
 ## Demo video
 https://www.youtube.com/watch?v=9-wYKN2I5G0
