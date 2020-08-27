@@ -138,6 +138,10 @@ if __name__ == "__main__":
             # Updates the state
             state = next_state
 
+            # Allows agent to learn from previous experiences
+            if len(agent.memory) > batch_size:
+                agent.replay(batch_size)
+
             if done:
                 print("Episode %d/%d finished after %d episode steps with total reward = %f."
                       % (episode + 1, num_episodes, episode_step + 1, total_reward))
@@ -146,9 +150,6 @@ if __name__ == "__main__":
             elif episode_step >= num_episode_steps - 1:
                 print("Episode %d/%d timed out at %d with total reward = %f."
                       % (episode + 1, num_episodes, episode_step + 1, total_reward))
-
-            if len(agent.memory) > batch_size:
-                agent.replay(batch_size)
 
         # Saves the weights
         agent.save_weights("mountain-car-v0.h5")
