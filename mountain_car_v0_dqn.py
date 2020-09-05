@@ -1,5 +1,5 @@
 """
-MountainCar-v0 -- Deep Q-learning with Experience Replay (DQN)
+MountainCar-v0 -- Deep Q-learning with Experience Replay
 """
 import os
 import random
