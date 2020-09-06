@@ -5,7 +5,7 @@ A car is on a one-dimensional track, positioned between two "mountains". The goa
 OpenAI Gym is a toolkit for developing and comparing reinforcement learning algorithms. It supports teaching agents everything from walking to playing games like pong or pinball. Gym is an open source interface to reinforcement learning tasks.
 
 ## Reinforcement learning algorithms
-- Deep Q-Network with Experience Replay (off-policy, model-free)
+- Deep Q-learning with Experience Replay (off-policy, model-free)
 
 ## Demo video
 https://www.youtube.com/watch?v=9-wYKN2I5G0
