@@ -44,7 +44,7 @@ class Agent:
             return np.argmax(self.model.predict(state)[0])
 
     def experience_replay(self):
-        # Starts experience after we collected enough data
+        # Updates the online network weights after enough data is collected
         if self.training >= len(self.memory):
             return
 
