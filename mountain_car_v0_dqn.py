@@ -18,11 +18,12 @@ class Agent:
         self.action_size = action_size
         self.batch_size = batch_size
         self.memory = deque(maxlen=memory_size)
+        self.training = 10000  # start training after 10000 env steps
         self.gamma = 0.95  # discount rate
         self.epsilon = 1.0  # exploration rate
         self.epsilon_min = 0.01
         self.epsilon_decay = 0.995
-        self.learning_rate = 0.0005
+        self.learning_rate = 0.001
         self.model = self._build_model()
 
     def _build_model(self):
@@ -43,10 +44,11 @@ class Agent:
             return np.argmax(self.model.predict(state)[0])
 
     def experience_replay(self):
-        if len(self.memory) < self.batch_size:
+        # Starts experience after we collected enough data
+        if self.training >= len(self.memory):
             return
 
-        # Randomly sample a batch from the memory
+        # Samples a batch from the memory
         random_batch = random.sample(self.memory, self.batch_size)
 
         state = np.zeros((self.batch_size, self.state_size))
@@ -60,7 +62,7 @@ class Agent:
             next_state[i] = random_batch[i][3]
             done.append(random_batch[i][4])
 
-        # Batch prediction to save speed
+        # Batch prediction to save compute costs
         target = self.model.predict(state)
         target_next = self.model(next_state)
 
@@ -89,7 +91,7 @@ class Agent:
 
 if __name__ == "__main__":
     # Flag used to enable or disable screen recording
-    recording_is_enabled = False
+    recording_is_enabled = True
 
     # Initializes the environment
     env = gym.make('MountainCar-v0')
@@ -104,10 +106,10 @@ if __name__ == "__main__":
     action_size = env.action_space.n
     state_size = env.observation_space.shape[0]
 
-    # Creates the brain
+    # Creates the agent
     agent = Agent(state_size=state_size, action_size=action_size)
 
-    # Loads the model if exists
+    # Loads the model
     if os.path.isfile("mountain-car-v0.h5"):
         agent.load_weights("mountain-car-v0.h5")
 
