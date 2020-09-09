@@ -18,7 +18,7 @@ class Agent:
         self.action_size = action_size
         self.batch_size = batch_size
         self.memory = deque(maxlen=memory_size)
-        self.training = 10000  # start training after 10000 env steps
+        self.training = 10000  # training after 10000 env steps
         self.gamma = 0.95  # discount rate
         self.epsilon = 1.0  # exploration rate
         self.epsilon_min = 0.01
