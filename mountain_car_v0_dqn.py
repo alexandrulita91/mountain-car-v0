@@ -109,7 +109,7 @@ if __name__ == "__main__":
     # Creates the agent
     agent = Agent(state_size=state_size, action_size=action_size)
 
-    # Loads the model
+    # Loads the weights
     if os.path.isfile("mountain-car-v0.h5"):
         agent.load_weights("mountain-car-v0.h5")
 
