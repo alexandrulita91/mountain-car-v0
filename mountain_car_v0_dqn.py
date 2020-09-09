@@ -13,7 +13,7 @@ from keras.optimizers import Adam
 
 
 class Agent:
-    def __init__(self, state_size, action_size, batch_size=32, memory_size=100000):
+    def __init__(self, state_size, action_size, batch_size=32, memory_size=50000):
         self.state_size = state_size
         self.action_size = action_size
         self.batch_size = batch_size
