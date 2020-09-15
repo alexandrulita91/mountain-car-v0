@@ -105,6 +105,7 @@ if __name__ == "__main__":
     num_episode_steps = env.spec.max_episode_steps  # constant value
     action_size = env.action_space.n
     state_size = env.observation_space.shape[0]
+    max_reward = 0
 
     # Creates the agent
     agent = Agent(state_size=state_size, action_size=action_size)
@@ -167,7 +168,9 @@ if __name__ == "__main__":
                       % (episode + 1, num_episodes, episode_step + 1, total_reward))
 
         # Saves the weights
-        agent.save_weights("mountain-car-v0.h5")
+        if total_reward >= max_reward:
+            agent.save_weights("mountain-car-v0.h5")
+            max_reward = total_reward
 
     # Closes the environment
     env.close()
